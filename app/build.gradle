@@ -1,0 +1,52 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.lucassales.twitch"
+        minSdkVersion 21
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "com.android.support:appcompat-v7:${versions.support_library}"
+    implementation "com.android.support:design:${versions.support_library}"
+    implementation "com.android.support:cardview-v7:${versions.support_library}"
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation "android.arch.lifecycle:extensions:${versions.arch}"
+    implementation "android.arch.lifecycle:reactivestreams:${versions.arch}"
+    annotationProcessor "android.arch.lifecycle:compiler:${versions.arch}"
+    implementation "com.google.dagger:dagger-android:${versions.dagger}"
+    implementation "com.google.dagger:dagger-android-support:${versions.dagger}"
+    annotationProcessor "com.google.dagger:dagger-compiler:${versions.dagger}"
+    annotationProcessor "com.google.dagger:dagger-android-processor:${versions.dagger}"
+    implementation "android.arch.persistence.room:runtime:${versions.arch_room}"
+    implementation "android.arch.persistence.room:rxjava2:${versions.arch_room}"
+    annotationProcessor "android.arch.persistence.room:compiler:${versions.arch_room}"
+    implementation 'com.github.bumptech.glide:glide:4.6.1'
+    implementation "com.google.code.gson:gson:${versions.gson}"
+    api 'com.jakewharton.timber:timber:4.6.1'
+    api "com.google.dagger:dagger:${versions.dagger}"
+    api "com.squareup.retrofit2:retrofit:${versions.retrofit}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit}"
+    implementation "com.squareup.retrofit2:converter-gson:${versions.retrofit}"
+    api "io.reactivex.rxjava2:rxjava:${versions.rx}"
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+}
